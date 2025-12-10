@@ -50,3 +50,14 @@ Need to repeat for each and every student so it is time consuming because need t
     Need to be consistence and sholdn't take so much time
 
 # Use Cases
+## High-Level Use Cases
+1. Teacher adds a essay question
+2. Teacher provide the model answer
+3. System creates embedding using Gemini
+4. Student answer the question
+5. System compares embeddings and give score & feedback
+6. Student receive the mark and the feedback
+7. Teacher views analytics
+8. Admin manage the users and the assessment batches
+
+## Detailed Use Cases
