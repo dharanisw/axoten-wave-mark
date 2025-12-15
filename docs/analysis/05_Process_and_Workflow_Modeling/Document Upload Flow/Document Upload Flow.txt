@@ -1,0 +1,14 @@
+@startuml
+start
+:Select document;
+:Validate file type & size;
+if (Valid?) then (Yes)
+  :Upload document;
+  :Store metadata;
+  :Log upload;
+  :Show success message;
+else (No)
+  :Show error message;
+endif
+stop
+@enduml
