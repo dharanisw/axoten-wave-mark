@@ -1,11 +1,17 @@
-| Field               | Description                   | Type   | Example |
-| ------------------  | :---------------------------- | :----- | :-------|
-| question_id         |   Unique question reference   | String | Q123 |
-| question_text       |   Essay prompt                | Text   | “Explain MAC Address” |
-| reference_answer    |   Teacher answer              | Text   |  “MAC Address is..” |
-| reference_embedding |   Embedding vector            | Array  | [0.23,0.91...] |
-| student_id          |   User ID                     | String | STU110 |
-| student_answer      |   Student essay               | Text   | "In Computers..."|
-| student_embedding   |   Embedding vector            | Array  | [..] |
-| similarity          |   Score between vectors       | Float  | 0.78 |
-| marks               |   Assigned score              | Float  | 18 |
+| Field Name          | Description               | Type        |
+| ------------------- | ------------------------- | ----------- |
+| user_id             | Unique user identifier    | String      |
+| role                | Student / Teacher / Admin | Enum        |
+| assessment_id       | Assessment identifier     | String      |
+| question_id         | Essay question identifier | String      |
+| question_text       | Essay question content    | Text        |
+| reference_answer    | Teacher’s model answer    | Text        |
+| reference_embedding | Vector from Gemini        | Float Array |
+| submission_id       | Student submission ID     | String      |
+| student_answer      | Student essay text        | Text        |
+| student_embedding   | Student answer vector     | Float Array |
+| similarity_score    | Similarity value          | Float       |
+| creativity_weight   | Adjustment factor         | Float       |
+| final_marks         | Marks awarded             | Float       |
+| feedback            | AI-generated feedback     | Text        |
+| created_at          | Timestamp                 | DateTime    |
