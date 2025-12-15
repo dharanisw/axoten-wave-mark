@@ -1,0 +1,13 @@
+@startuml
+start
+:Receive student answer;
+:Generate student embedding (Gemini);
+:Fetch reference embedding;
+:Calculate cosine similarity;
+:Apply creativity weighting;
+:Assign marks;
+:Generate feedback;
+:Store results;
+:Display marks to student;
+stop
+@enduml
