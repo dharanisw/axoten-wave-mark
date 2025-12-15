@@ -1,0 +1,39 @@
+@startuml
+start
+
+:Teacher logs in;
+:Create assessment;
+:Add essay question;
+:Enter reference answer;
+
+if (Reference valid?) then (Yes)
+  :Generate embedding via Gemini;
+  :Store reference embedding;
+else (No)
+  :Show validation error;
+  stop
+endif
+
+:Student logs in;
+:Select assessment;
+:Write essay answer;
+
+if (Answer valid?) then (Yes)
+  :Submit answer;
+else (No)
+  :Show error;
+  stop
+endif
+
+:Generate student embedding;
+:Compare embeddings;
+:Calculate similarity;
+:Assign marks;
+:Generate feedback;
+:Store results;
+
+:Student views marks;
+:Teacher reviews results;
+
+stop
+@enduml
