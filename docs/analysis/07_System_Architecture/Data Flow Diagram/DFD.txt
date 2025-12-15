@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+actor Teacher
+actor Student
+
+process "Essay Auto-Grading System" as System
+
+database "Database" as DB
+rectangle "Gemini API" as Gemini
+
+Teacher --> System : Questions\nReference Answers
+Student --> System : Essay Answers
+
+System --> Student : Marks\nFeedback
+System --> Teacher : Results\nAnalytics
+
+System --> Gemini : Text for Embedding
+Gemini --> System : Embeddings
+
+System --> DB : Store / Retrieve Data
+DB --> System : Stored Data
+
+@enduml
