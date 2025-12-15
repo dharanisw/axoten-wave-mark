@@ -1,0 +1,23 @@
+@startuml
+actor Teacher
+actor Student
+
+rectangle "Web UI" as UI
+rectangle "Backend API" as BE
+rectangle "Scoring Engine" as SE
+rectangle "Gemini API" as Gemini
+database DB
+
+Teacher --> UI
+Student --> UI
+
+UI --> BE
+BE --> Gemini : Text for embedding
+Gemini --> BE : Embedding vectors
+
+BE --> SE
+SE --> DB
+DB --> BE
+
+BE --> UI : Results & feedback
+@enduml
