@@ -1,0 +1,28 @@
+@startuml
+actor Teacher
+actor Student
+participant "Web UI" as UI
+participant "Backend Service" as BE
+participant "Gemini API" as Gemini
+database DB
+
+Teacher -> UI : Create Question\nEnter Reference Answer
+UI -> BE : Send question data
+BE -> Gemini : Generate reference embedding
+Gemini --> BE : Embedding vector
+BE -> DB : Save question + embedding
+
+Student -> UI : Submit essay answer
+UI -> BE : Send answer
+BE -> Gemini : Generate student embedding
+Gemini --> BE : Embedding vector
+BE -> DB : Save submission
+
+BE -> BE : Compare embeddings\nCalculate similarity
+BE -> DB : Save score + feedback
+
+BE --> UI : Marks + feedback
+UI --> Student : Display result
+UI --> Teacher : Display analytics
+
+@enduml
