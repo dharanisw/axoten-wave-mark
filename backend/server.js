@@ -1,8 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
+
+const teacherRoutes = require("./routes/teacherRoutes");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
@@ -10,5 +12,8 @@ app.get("/api/ping", (req, res) => {
   res.json({ message: "Backend running" });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+app.use("/teacher", teacherRoutes);
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
